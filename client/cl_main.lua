@@ -37,7 +37,7 @@ local function FrontDeskZones()
                         TriggerEvent("rs-frontdesk:client:OpenFrontDesk", location)
                     end,
                     icon = "fas fa-desktop",
-                    label = "Front Desk",
+                    label = "Réception",
                 },
             },
             distance = 2.0
@@ -53,6 +53,7 @@ RegisterNetEvent('rs-frontdesk:client:OpenFrontDesk',function(job)
                 header =  Config.Locations[job].Zone.name,
                 isMenuHeader = true,
             },
+            /*
             {
                 header = 'Toggle Duty',
                 icon = 'fas fa-power-off',
@@ -61,8 +62,9 @@ RegisterNetEvent('rs-frontdesk:client:OpenFrontDesk',function(job)
                     args = job
                 }
             },
+            */
             {
-                header = 'Assistance Menu',
+                header = 'Menu Assistance',
                 icon = 'fas fa-hand-holding-heart',
                 params = {
                     event = 'rs-frontdesk:client:OpenAssistanceMenu',
@@ -70,7 +72,7 @@ RegisterNetEvent('rs-frontdesk:client:OpenFrontDesk',function(job)
                 }
             },
             {
-                header = 'Exit Menu',
+                header = 'Fermer Menu',
                 icon = 'fas fa-x',
             },
         }
@@ -82,7 +84,7 @@ RegisterNetEvent('rs-frontdesk:client:OpenFrontDesk',function(job)
                 isMenuHeader = true,
             },
             {
-                header = 'Assistance Menu',
+                header = 'Menu Assistance',
                 icon = 'fas fa-hand-holding-heart',
                 params = {
                     event = 'rs-frontdesk:client:OpenAssistanceMenu',
@@ -113,8 +115,8 @@ end)
 RegisterNetEvent('rs-frontdesk:client:OpenAssistanceMenu',function(job)
     local AssistanceMenu = {}
     AssistanceMenu[#AssistanceMenu + 1] = {
-        header = 'Assistance Menu',
-        txt = 'Select an option below',
+        header = 'Menu Assistance',
+        txt = 'Selectionner un type de demande',
         icon = 'fas fa-code',
         isMenuHeader = true,
     }
@@ -135,7 +137,7 @@ RegisterNetEvent('rs-frontdesk:client:OpenAssistanceMenu',function(job)
     end
 
     AssistanceMenu[#AssistanceMenu + 1] = {
-        header = 'Return',
+        header = 'Retour',
         icon = 'fas fa-arrow-left-long',
         params = {
             event = 'rs-frontdesk:client:OpenFrontDesk'
